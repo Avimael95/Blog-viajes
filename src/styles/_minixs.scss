@@ -1,0 +1,42 @@
+
+
+    @mixin boton($color) {
+        display: block;
+        background-color: $color;
+        padding: .5rem 1rem;
+        margin-top: 1rem;
+        text-align: center;
+        text-decoration: none;
+        color: $blanco;
+        border-radius: .3rem;
+    }
+
+    @mixin box-sizing($box-model) {
+        box-sizing: $box-model;
+    }
+    @mixin  background-image($rutaimagen) {
+        background-image: url($rutaimagen);
+        background-position: center center;
+        background-size: cover;
+        height: 100vh;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+    }
+
+    @mixin  telefono {
+        @media only screen and (min-width:#{$telefono}) {
+            @content;
+        }
+    }
+
+    @mixin  tablet {
+        @media only screen and (min-width:#{$tablet}) {
+            @content;
+        }
+    }
+
+    @mixin  desktop {
+        @media only screen and (min-width:#{$desktop}) {
+            @content;
+        }
+    }

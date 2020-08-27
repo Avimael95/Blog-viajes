@@ -1,0 +1,85 @@
+@import 'variables';
+@import 'minixs';
+
+*{
+  @include box-sizing(border-box);
+  padding: 0px;
+  margin: 0px;
+}
+
+/*Estilos globales*/
+li{
+  list-style: none;
+  padding: 10px;
+}
+
+a{
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 1.5rem;
+  margin-left: 10px;
+}
+a:hover{
+  border-bottom: 2px solid $blanco;
+}
+
+.header{
+  padding-top: 3rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hero{
+ @include background-image("../static/hero.jpg");
+}
+
+.barra{
+  background-color: $principal;
+  padding: 1rem;
+  top: 1rem;
+  position: absolute;
+  width: 100%;
+
+  .contenedor-flex{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    margin: 0 auto;
+    .logo{
+      .logo-img{
+        width: 100%;
+      }
+    }
+    .menu{
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    @include tablet{
+      .menu{
+        flex-direction: row;
+      }
+    }
+    @include desktop{
+      flex-direction: row;
+    }
+  }
+
+}
+
+.header-contenido{
+  max-width: 1200px;
+  .contenedor{
+    display: flex;
+    h1{
+      padding: 2rem;
+      color: $principal;
+      text-transform: uppercase;
+      font-size: 3rem;
+      max-width: 40rem;
+    }
+  }
+}
