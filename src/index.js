@@ -13,6 +13,7 @@ import './static/03.jpg';
 import './static/04.jpg';
 import './static/05.jpg';
 import './static/06.jpg';
+import './static/hero.jpg';
 
 
 

@@ -15,14 +15,6 @@
     @mixin box-sizing($box-model) {
         box-sizing: $box-model;
     }
-    @mixin  background-image($rutaimagen) {
-        background-image: url($rutaimagen);
-        background-position: center center;
-        background-size: cover;
-        height: 100vh;
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-    }
 
     @mixin  background-categoria($color) {
         background-color:$color;
