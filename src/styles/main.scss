@@ -2,84 +2,270 @@
 @import 'minixs';
 
 *{
-  @include box-sizing(border-box);
-  padding: 0px;
-  margin: 0px;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
-/*Estilos globales*/
-li{
-  list-style: none;
-  padding: 10px;
+body{
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 300;
+  background-color: $gris;
 }
 
-a{
-  text-decoration: none;
-  color: #ffffff;
-  font-size: 1.5rem;
-  margin-left: 10px;
-}
-a:hover{
-  border-bottom: 2px solid $blanco;
+
+.hero{
+  background-image: url(../static/hero.jpg);
+  background-repeat: no-repeat;
+  background-position: center center;
+  height: 100vh;
+  background-size: cover;
+  background-attachment: fixed; /*Me permite decirle que la imagen se quede fija*/
 }
 
 .header{
-  padding-top: 3rem;
   position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  .barra{
+    position:absolute;
+    background-color: $principal;
+    top: 2rem;
+    width: 100%;
+    padding: 1rem 0;
+  }
 }
 
-.hero{
- @include background-image("../static/hero.jpg");
-}
-
-.barra{
-  background-color: $principal;
-  padding: 1rem;
-  top: 1rem;
-  position: absolute;
-  width: 100%;
-
-  .contenedor-flex{
-    display: flex;
+.contenedor{
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .logo{
+    text-align: center;
+    img{
+      width: 20rem;
+    }
+  }
+  @include desktop{
+    flex-direction: row;
     justify-content: space-between;
-    align-items: center;
+  }
+}
+
+.navegacion{
+  text-align: center;
+  @include desktop{
+    flex: 0 1 20rem;
+  }
+  ul{
+    list-style: none;
+    display: flex;
     flex-direction: column;
-    margin: 0 auto;
-    .logo{
-      .logo-img{
-        width: 100%;
+    @include desktop{
+      justify-content: space-between;
+      flex-direction: row;
+    }
+    a{
+      color: $blanco;
+      text-decoration: none;
+      font-size: 1.2rem;
+      &:hover{
+        border-bottom: 2px solid $blanco;
       }
     }
-    .menu{
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
+    
+  }
+  
+}
+
+.header-contenido{
+  .contenedor{
+    display: flex;
+    justify-content: start;
+    h1{
+    padding: 2rem;
+    color:#008fd1;
+    text-transform: uppercase;
+    font-size: 3rem;
+    max-width: 40rem;
+    }
+  }
+  @include telefono{
+    justify-content: center;
+  }
+}
+
+/*Estilos del contenido principal*/
+.principal{
+  max-width: 1100px;
+  margin: 0 auto;
+  h1{
+  margin: 3rem 0;
+   text-align: center; 
+  }
+  .contenido{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    .card{
+      background-color: $blanco;
+      margin-bottom: 2rem;
+      text-align: center;
+      border-radius: 1rem;
+      img{
+       max-width: 100%;
+       border-radius: 1rem;
+      }
     }
     @include tablet{
-      .menu{
-        flex-direction: row;
+      .card{
+        flex: 0 1 calc(50% - 1rem);
       }
     }
     @include desktop{
       flex-direction: row;
+      .card{
+        flex:0 1 calc(33% - 1rem);
+      }
     }
+  
   }
-
 }
 
-.header-contenido{
-  max-width: 1200px;
-  .contenedor{
+.descripcion{
+  text-align: center;
+  text-transform: uppercase;
+  padding: 1rem;
+  h3{
+    line-height: 1.4rem;
+    font-size: .9rem;
+    font-weight: 700;
+    margin-bottom: .5rem;
+  }
+  p{
+    margin-bottom: 1rem;
+    font-size: .8rem;
+    span{
+      color: $rosado;
+    }
+  }
+}
+
+.boton{
+  @include boton($principal);
+}
+
+.categorias{
+  margin-bottom: 2rem;
+  ul{
+    list-style: none;
     display: flex;
-    h1{
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 0;
+    li{
+      flex: 1 0 calc(50% - 1rem);
       padding: 2rem;
-      color: $principal;
-      text-transform: uppercase;
-      font-size: 3rem;
-      max-width: 40rem;
+     a{
+      text-decoration: none;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      svg{
+        font-size: 3rem;
+        margin-bottom: 1rem;
+      }
+     }
     }
+
+    li:nth-child(1){
+      @include background-categoria($principal);
+    }
+    li:nth-child(2){
+      @include background-categoria($rosado);
+    }
+    li:nth-child(3){
+      @include background-categoria($morado);
+    }
+    li:nth-child(4){
+      @include background-categoria($crema);
+    }
+    @include desktop{
+      li{
+        flex: 1 0 calc(25% - 1rem);
+      }
+    }
+
   }
 }
+
+/*Estilos el footer*/
+.footer{
+  background-color: $principal;
+  p{
+    background-color: #004d70;
+    color: $blanco;
+    text-align: center;
+    padding: 1rem;
+  }
+}
+.contenido{
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  h2{
+    font-size: 2.4rem;
+    margin-bottom: 1rem;
+    color: $blanco;
+  }
+  .caja{
+    padding: 1rem;
+  }
+  @include tablet{
+
+  }
+  @include desktop{
+    flex-direction: row;
+    .caja{
+      flex: 1 0 calc(33% - 1rem);
+    }
+  }
+  .sobre-nosotros{
+      line-height: 1.4rem;
+      margin-bottom: 1rem;
+      color: $blanco;
+  }
+
+  .ultimas-entradas{
+    ul{
+      color: $blanco;
+      padding-left: 4rem;
+    }
+  }
+  .redes-sociales{
+   ul{
+     display: flex;
+     justify-content: center;
+     list-style: none;
+     li{
+       flex: 1;
+       svg{
+         font-size: 2.4rem;
+         width: 100%;
+         color: $blanco;
+       }
+     }
+   }
+
+  }
+
+}
+
+

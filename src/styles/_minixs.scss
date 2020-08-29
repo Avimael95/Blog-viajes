@@ -1,14 +1,15 @@
 
 
     @mixin boton($color) {
-        display: block;
+        display: inline-block;
         background-color: $color;
         padding: .5rem 1rem;
-        margin-top: 1rem;
         text-align: center;
         text-decoration: none;
         color: $blanco;
         border-radius: .3rem;
+        width: 200px;
+        margin-bottom: 2rem;
     }
 
     @mixin box-sizing($box-model) {
@@ -23,6 +24,9 @@
         background-attachment: fixed;
     }
 
+    @mixin  background-categoria($color) {
+        background-color:$color;
+    }
     @mixin  telefono {
         @media only screen and (min-width:#{$telefono}) {
             @content;
